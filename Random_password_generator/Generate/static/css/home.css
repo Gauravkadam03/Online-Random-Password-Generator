@@ -1,0 +1,17 @@
+
+#jbt{
+   
+    margin: 80px auto;
+  display: flex;
+   
+    justify-content: center;
+
+}
+
+#cent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+

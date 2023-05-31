@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    {% include "Generate/base.html" %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <style>
+        body{
+            background-image:url("{% static 'images/Home bg.jpg' %}");
+            background-size: cover;
+            background-repeat:no-repeat ;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar  navbar-dark bg-dark ">
+        <span class="navbar-brand mx-auto ">
+         ONLINE PASSWORD GENERATOR
+        </span>
+      </nav>
+      <div id=cent>
+      <div class="jumbotron  bg-dark" id="jbt">
+                    <div class="card-body  p-md-5 ">
+                      <h3 class="mb-4 text-light text-center">Generate Password</h3>
+                      <hr style="border-color: aliceblue;">
+                      <form action="" method="post">{% csrf_token%}
+                        <label for="length" class="form-label text-light">Enter Password Length : </label>
+                        <input type="number" id="length" min="4" max="15" name="length"  /><br>
+                        <label for="capital" class="form-label text-light">Include Capital letters : </label>
+                        <input type="checkbox" id="capital" name="capital"   /><br>
+                        <label for="small" class="form-label text-light">Include Small letters : </label>
+                        <input type="checkbox" id="small"  name="small" /><br>
+                        <label for="number" class="form-label text-light">Include Numbers : </label>
+                        <input type="checkbox" id="number"   name="number"/><br>
+                        <label for="symbol" class="form-label text-light">Include Symbols : </label>
+                        <input type="checkbox" id="symbol"  name="symbol"  /><br>
+                        <hr style="border-color: aliceblue;">
+                        <div class="text-center">
+                        <button type="submit"  >Generate Password</button></div>
+                        
+                        <div style="padding: 20px;">
+                            </div>
+                           
+                       
+                      </form>
+                      <input type="text" id="myInput" value="{{password}}" />
+                      <button onclick="myfunction()" id="copy">copy</button><br><br><br>
+                      <div class="text-light">{% for i in messages %}
+              {{i}}
+              {% endfor %}</div>
+                      <script>
+                        function copy() {
+ 
+                          var copyText = document.querySelector("#myInput");
+                          copyText.select();
+                          document.execCommand("copy");
+                        }
+                          document.querySelector("#copy").addEventListener('click',copy);
+
+                      </script>
+                    </div>
+                  </div>
+                  
+                </div> 
+               
+</body>
+</html>
